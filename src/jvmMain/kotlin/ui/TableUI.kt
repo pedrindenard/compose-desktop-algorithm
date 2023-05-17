@@ -20,7 +20,7 @@ import models.Data
 
 class TableUI {
 
-    var bubbleSortValues by mutableStateOf(listOf(0F, 0F, 0F, 0F, 0F, 0F, 0F))
+    var bubbleSortValues by mutableStateOf(listOf(0F, 0F, 0F, 0F, 0F, 0F, 1728.348F))
     var quickSortValues by mutableStateOf(listOf(0F, 0F, 0F, 0F, 0F, 0F, 0F))
     var mergeSortValues by mutableStateOf(listOf(0F, 0F, 0F, 0F, 0F, 0F, 0F))
 
@@ -53,19 +53,8 @@ class TableUI {
             )
 
             repeat(times = Data.values().size) { value ->
-
-                val text = when (value) {
-                    0 -> Data.MINIMUM.value
-                    1 -> Data.SMALL.value
-                    2 -> Data.AVERAGE.value
-                    3 -> Data.LONG.value
-                    4 -> Data.EXTENSIVE.value
-                    5 -> Data.BIG.value
-                    else -> Data.HUGE.value
-                }
-
                 Text(
-                    text = text.toString(),
+                    text = Data.values()[value].value.toString(),
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
@@ -92,6 +81,7 @@ class TableUI {
                     color = Color.Black,
                     modifier = Modifier
                         .weight(1F)
+                        .padding(PaddingValues(horizontal = 4.dp))
                         .border(BorderStroke(1.dp, Color.Black), RoundedCornerShape(4.dp))
                         .padding(8.dp)
                 )
