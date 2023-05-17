@@ -20,9 +20,9 @@ import models.Data
 
 class TableUI {
 
-    var bubbleSortValues by mutableStateOf(listOf(0L, 0L, 0L, 0L, 0L, 0L))
-    var quickSortValues by mutableStateOf(listOf(0L, 0L, 0L, 0L, 0L, 0L))
-    var mergeSortValues by mutableStateOf(listOf(0L, 0L, 0L, 0L, 0L, 0L))
+    var bubbleSortValues by mutableStateOf(listOf(0F, 0F, 0F, 0F, 0F, 0F, 0F))
+    var quickSortValues by mutableStateOf(listOf(0F, 0F, 0F, 0F, 0F, 0F, 0F))
+    var mergeSortValues by mutableStateOf(listOf(0F, 0F, 0F, 0F, 0F, 0F, 0F))
 
     @Composable
     fun create() {
@@ -52,14 +52,15 @@ class TableUI {
                 modifier = Modifier.weight(1F)
             )
 
-            repeat(times = 6) { value ->
+            repeat(times = Data.values().size) { value ->
 
                 val text = when (value) {
                     0 -> Data.MINIMUM.value
                     1 -> Data.SMALL.value
                     2 -> Data.AVERAGE.value
-                    3 -> Data.EXTENSIVE.value
-                    4 -> Data.BIG.value
+                    3 -> Data.LONG.value
+                    4 -> Data.EXTENSIVE.value
+                    5 -> Data.BIG.value
                     else -> Data.HUGE.value
                 }
 
@@ -75,7 +76,7 @@ class TableUI {
     }
 
     @Composable
-    fun AlgorithmRow(algorithm: String, results: List<Long>) {
+    fun AlgorithmRow(algorithm: String, results: List<Float>) {
         Row(
             modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
             horizontalArrangement = Arrangement.SpaceEvenly,

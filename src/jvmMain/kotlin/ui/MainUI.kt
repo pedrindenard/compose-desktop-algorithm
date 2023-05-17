@@ -66,8 +66,8 @@ class MainUI {
         })
     }
 
-    private suspend fun LoadingUI.execute(sort: Sort): ArrayList<Long> {
-        val values = arrayListOf<Long>()
+    private suspend fun LoadingUI.execute(sort: Sort): ArrayList<Float> {
+        val values = arrayListOf<Float>()
 
         isLoading = true
 
@@ -85,7 +85,8 @@ class MainUI {
 
             }
 
-            values.add(measureTimeMillis)
+            val resultInSeconds = measureTimeMillis.toFloat() / 1000F
+            values.add(resultInSeconds)
         }
 
         isLoading = false
