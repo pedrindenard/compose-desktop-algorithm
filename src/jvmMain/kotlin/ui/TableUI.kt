@@ -20,7 +20,7 @@ import models.Data
 
 class TableUI {
 
-    var bubbleSortValues by mutableStateOf(listOf(0F, 0F, 0F, 0F, 0F, 0F, 1728.348F))
+    var bubbleSortValues by mutableStateOf(listOf(0F, 0F, 0F, 0F, 0F, 0F, 0F))
     var quickSortValues by mutableStateOf(listOf(0F, 0F, 0F, 0F, 0F, 0F, 0F))
     var mergeSortValues by mutableStateOf(listOf(0F, 0F, 0F, 0F, 0F, 0F, 0F))
 
